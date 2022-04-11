@@ -38,12 +38,20 @@ You might want to use this program inside of a container. The
 subfolder has all the necessary information and source files to set it
 up.
 
+.. |docker| replace:: ``docker/``
+.. _docker: https://github.com/EPFL-LCSB/open/tree/master/docker
+
+
+.. code:: bash
+
+    cd open/docker
+    ./build.sh
+    ./run.sh
+
+
+Quick start
+===========
 
 
 
-cd open/docker
-and ru
-./build.sh
-
-./run.sh
 
