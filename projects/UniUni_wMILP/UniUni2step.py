@@ -18,7 +18,7 @@ S_conc = np.linspace((0.001), (limit), 20)
 P_conc = S_conc* q_equilibrium *gamma_overall
 
 for S_concentration in S_conc[(P_conc >= 0.001) & (P_conc <= 6.0)]:
-    obj_primal_milp, variables_primal_milp= milp_problem_2step(gamma_overall, q=2.0, S=S_concentration, variability_analysis=False)
+    obj_primal_milp, variables_primal_milp,var_analysis= milp_problem_2step(gamma_overall, q=2.0, S=S_concentration, variability_analysis=False)
 
     df_milp_variables = pd.DataFrame(variables_primal_milp,index=[0])
     print(df_milp_variables.T)

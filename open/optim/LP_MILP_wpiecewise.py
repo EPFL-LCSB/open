@@ -1,5 +1,4 @@
-from deap import tools
-from deap import algorithms
+
 from optlang.cplex_interface import Model, Variable, Constraint, Objective
 import numpy as np
 from open.optim.variability_analysis import *
