@@ -23,7 +23,7 @@ cobra==0.17.1
 wheel
 tqdm
 sklearn
-seaborn
+
 
 
 
