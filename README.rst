@@ -6,8 +6,9 @@ More information can be found in the manuscript
 "Optimal enzyme utilization suggests concentrations and thermodynamics favor condition-specific saturations and binding mechanisms"
 
 The package is developed using python 3.6 and run in Docker (20.10.6) containers.
+Tested with solvers cplex and gurobi (default implemented on cplex_interface)
 
-Recommended to be run in docker containers
+Recommended to be run in docker containers, with dedicated solver installed
 
 Requirements
 ------------
@@ -49,6 +50,15 @@ up.
     ./build.sh
     ./run.sh
 
+Setup
+=====
+You can install this module from source using ``pip``:
+*For Python 3, you might have to use* ``pip3`` *instead of* ``pip``
+
+.. code:: bash
+
+    git clone https://github.com/EPFL-LCSB/open.git /path/to/open
+    pip3 install -e /path/to/open
 
 Quick start
 ===========
