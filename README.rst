@@ -64,7 +64,9 @@ You can install this module from source using ``pip``:
     git clone https://github.com/EPFL-LCSB/open.git /path/to/open
     pip3 install -e /path/to/open
 
-
+License
+=======
+The software in this repository is put under an APACHE licensing scheme - please see the `LICENSE <https://github.com/EPFL-LCSB/open/master/LICENSE.txt>`_ file for more details.
 
 
 

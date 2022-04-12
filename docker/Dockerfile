@@ -74,10 +74,6 @@ RUN touch /root/.ssh/known_hosts
 RUN ssh-keyscan c4science.ch >> /root/.ssh/known_hosts
 #this id rsa you need to generate it and also paste it to c4science public ssh and put private file here so that it can login with your user name!!
 
-COPY ssh_key/id_rsa /root/.ssh
-#COPY id_rsa .
-#todo openbread works with python 3.5
-#RUN /bin/bash /utils/install_openbread.sh
 
 RUN rm -rf /solvers
 
