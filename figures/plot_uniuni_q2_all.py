@@ -144,6 +144,7 @@ plt.close()
 
 
 df_q2=df_all
+df_q2['sat']=1-df_q2.E
 level_number=6
 df_q2['overall_gamma']=df_q2['gamma_overall']
 rang=np.linspace(-0.35,0.35,15)

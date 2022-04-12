@@ -7,12 +7,11 @@ tabulate
 sphinx>=1.4
 sphinx-rtd-theme
 pytest
+sklearn
 # from setup.py
-numpy<=1.17.4
+numpy
 pandas
 tables
-Cython
-deap
 optlang
 matplotlib
 #'required version'
@@ -22,7 +21,11 @@ pipdeptree==1.0.0
 cobra==0.17.1
 wheel
 tqdm
-sklearn
+
+
+
+
+
 
 
 
