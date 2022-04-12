@@ -21,16 +21,20 @@ You will need to have Git-LFS in order to properly download some binary files:
     git lfs pull
 
 Further the following pip-python packages are required (can be found in detail in requirements.txt
-    - sympy >= 1.1.
-    - pytest
-    - scipy
-    - numpy
-    - bokeh
+
+    - optlang
+    - cobra==0.17.1
+    - numpy<=1.17.4
     - pandas
     - matplotlib
-    - optlang
-    - cobra
     - tables
+    - sklearn
+    - ipython
+    - jedi==0.17.2
+    - tqdm
+    - scipy
+
+
 
 Container-based install
 -----------------------
@@ -60,8 +64,7 @@ You can install this module from source using ``pip``:
     git clone https://github.com/EPFL-LCSB/open.git /path/to/open
     pip3 install -e /path/to/open
 
-Quick start
-===========
+
 
 
 
