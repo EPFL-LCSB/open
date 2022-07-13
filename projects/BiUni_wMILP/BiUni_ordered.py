@@ -53,7 +53,7 @@ for P_conc in P_concentration:
 
         B_concentration = P_conc/(A_concentration*q_equilibrium*gamma_overall)
 
-        obj_primal_milp_4step, variables_primal_milp_4step = milp_problem_4step_biuni(gamma_overall, q=q_equilibrium,
+        obj_primal_milp_4step, variables_primal_milp_4step,var_analysis = milp_problem_4step_biuni(gamma_overall, q=q_equilibrium,
                                                                                   S=A_concentration, P=P_conc,
                                                                                   variability_analysis=False)
 
