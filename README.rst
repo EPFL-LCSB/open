@@ -14,6 +14,7 @@ Recommended to be run in docker containers, with dedicated solver installed.
 Requirements
 ------------
 You will need to have `Git-LFS <https://git-lfs.github.com/>`_ in order to properly download some binary files:
+
 .. code:: bash
 
     git clone https://github.com/EPFL-LCSB/open.git /path/to/open
