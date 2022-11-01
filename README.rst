@@ -3,8 +3,7 @@ OpEn: Optimal Enzyme
 This repository contains the workflow to framework to explore the catalytically optimal modes of operations of enzymatic reactions.
 
 More information can be found in the manuscript
-"Optimal enzyme utilization suggests concentrations and thermodynamics favor condition-specific saturations and binding mechanisms"
-
+`Optimal enzyme utilization suggests concentrations and thermodynamics favor condition-specific saturations and binding mechanisms <https://www.biorxiv.org/content/10.1101/2022.04.12.488028v1.full>`_
 The package is developed using python 3.6 and run in Docker (20.10.6) containers.
 Tested with solvers cplex and gurobi (default implemented on cplex_interface)
 
