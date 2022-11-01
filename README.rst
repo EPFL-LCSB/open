@@ -57,6 +57,9 @@ up.
     ./run.sh
 
 Building the docker image takes approximately 5 mins.
+
+
+
 Setup
 =====
 You can install this module from source using ``pip``:
@@ -126,9 +129,6 @@ And for random ordered multisubstrate mechanism A+B-->P
     from open.optim.LP_MILP_random import *
     import time
     import pandas as pd
-
-
-    "random ordered bi-uni mechanism"
     P_concentration=1.0
     A_concentration=3.0
     B_concentration=3.0
