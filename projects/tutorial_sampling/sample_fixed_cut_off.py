@@ -1,4 +1,8 @@
-"workflow kind of to sample from close to optimal solutions"
+
+""" workflow kind of to sample from close to optimal solutions
+this is not included in the manuscript
+it is to sample close to the optimal solution
+"""
 
 from open.optim.LP_MILP_wpiecewise import *
 from open.optim.feasibility_problem import *

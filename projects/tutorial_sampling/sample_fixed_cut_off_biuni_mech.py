@@ -1,4 +1,5 @@
-"workflow kind of to sample at equal concentrations of A and B to get alternative solutions"
+"""workflow to sample the random ordered mechanism
+at equal concentrations of both substrates"""
 
 from open.optim.LP_MILP_random import *
 from open.optim.feasibility_problem import *
@@ -9,7 +10,7 @@ import os
 from open.utils.postprocess import calculate_kinetic_params_uniuni, calculate_rate_constants_uniuni
 
 "set your parameters concentrations"
-
+"gamma overall should be <1"
 S_concentration =  3.0004
 B_concentration =  3.0004
 q_equilibrium = 2.0
@@ -37,7 +38,6 @@ df_optimal = pd.DataFrame(variables_primal_milp_4step_random_split, index=[0])
 'for each close to optimal'
 'run variability analysis to have the ranges mainly for gammas when close to optimal  e.g. 0.90% of the optimal '
 
-#close_to_optimal_list=[0.98,0.95,0.9,0.8,0.7,0.6,0.5,0.4,0.3,0.2,0.1]
 close_to_optimal_list=[1.0]
 
 for close_to_optimal in close_to_optimal_list:
@@ -49,9 +49,13 @@ for close_to_optimal in close_to_optimal_list:
         variability_analysis=True)
     df=pd.DataFrame(variables_primal_milp_biuni_random, index=[0])
 
+#here first get out of the loop if split ratio is not variablee
+    if (var_analysis_milp['maximum'].v_upper-var_analysis_milp['minimum'].v_upper)<=1e-9:
+        print('The solution is unique no need to sample')
+        break
 
-    'sample gammas from the variability analysis of the milp'
-    "gamma should be fixed"
+    else:
+        var_analysis_milp=var_analysis_milp.drop(['v_upper','v_lower'])
     n_sample_gammas=10
     if (var_analysis_milp['maximum']-var_analysis_milp['minimum']).all()<=1e-9:
         n_sample_gammas=1
@@ -121,8 +125,7 @@ for close_to_optimal in close_to_optimal_list:
     df_samples['B']=B_concentration*np.ones(df_samples.shape[0])
     df_samples['S']=S_concentration*np.ones(df_samples.shape[0])
     df_samples['split_ratio']=df_samples.v_upper/df_samples.v
-    #calculate_rate_constants_uniuni(df_samples)
-    #calculate_kinetic_params_uniuni(df_samples)
+#to save the data
     df_samples.to_hdf(
         output_file+'/sample_close_to_optimal_cutoff_{}_A_{}_B_{}_P_{}_q_{}_gamma_{}_size_{}.h5'.format(
             close_to_optimal, S_concentration,B_concentration, P_concentration, q_equilibrium,df_samples.shape[0],\

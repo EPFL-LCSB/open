@@ -341,7 +341,7 @@ def milp_problem_3step(gamma_ov, q=2.0, S=1.0, variability_analysis=False):
     #todo variability analysis
     if variability_analysis == True:
         df_var_analysis = pd.DataFrame()
-        df_var_analysis= variability_analysis_general(model_max)
+        df_var_analysis= variability_analysis_general(model_max,specify=False)
         # print(df_var_analysis)
         #dict_values['unique'] = a
     else:

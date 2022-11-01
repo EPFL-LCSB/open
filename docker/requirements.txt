@@ -16,7 +16,6 @@ optlang
 matplotlib
 #'required version'
 numexpr==2.7.1
-#todo figure this out if not cobra error
 pipdeptree==1.0.0
 cobra==0.17.1
 wheel

@@ -5,7 +5,6 @@ from open.optim.variability_analysis import *
 import math
 import pandas as pd
 
-#TODO THIS WHOLE FUNCTION IS TO BE REWRITTEN IN A PROPER REPRODUCIBLE MANNER by 02/21!!!!!!!
 '''random order mechanism where you fix splitting ratio alpha
 alpha is a parameter here'''
 def milp_problem_4step_biuni_random(gamma_ov, q=2.0, S=1.0, P=1.0, alpha=0.8,variability_analysis=False):
@@ -1372,7 +1371,6 @@ def milp_problem_4step_biuni_random_split_ratio_feasibility(v_net_lb,v_net_ub,ga
                            model_max.variables['k3_' + str(n_step + 1) + '_' + str(j)])
         for k in range(binary_variables + 1):
             expression_t[n_step] += multip_factor_gamma3 * multip_factor_a * 2 ** (k + j) * (
-                #todo error was here you need to solve this make it automatic
             model_max.variables['mt_' + str(n_step + 1) + '_' + str(j)+ '_' + str(k)])
 
     #todo to UPDATE

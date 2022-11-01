@@ -27,6 +27,10 @@ xmax=5.0
 ymax=5.0
 xx, yy = np.meshgrid(np.linspace((0.001), (xmax), 25),
                      np.linspace((0.001), (ymax), 25))
+
+
+xx, yy = np.meshgrid(np.linspace((0.001), (xmax), 3),
+                     np.linspace((0.001), (ymax), 3))
 q_equilibrium=2.0
 df=pd.DataFrame()
 df['A']=xx.ravel()

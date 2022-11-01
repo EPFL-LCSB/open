@@ -186,7 +186,7 @@ def variability_analysis_linearized(_tmodel, kind='reactions'):
 
     return df
 
-def variability_analysis_general(_tmodel, kind='reactions'):
+def variability_analysis_general(_tmodel, kind='reactions',specify=True):
 
     tmodel= Model.clone(_tmodel)
     accuracy=tmodel.configuration.tolerances.feasibility
@@ -199,13 +199,18 @@ def variability_analysis_general(_tmodel, kind='reactions'):
     results = {'min':{}, 'max':{}}
     for sense in ['min','max']:
         for k,var in tqdm(tmodel.variables.items(), desc=sense+'imizing'):
-            # if (k=='v_upper')or (k=='v_lower'):
-            if (k=='v_upper')or (k=='v_lower') \
-                    or (k=='E') or (k=='EA') or (k=='EAB') or (k=='EP') or (k=='EPQ') or(k=='EB') or (k=='z1') \
-                    or (k=='z2') or (k=='z3') or (k=='z4') or (k=='z5') or (k=='z6') or (k=='z7') or (k=='z8') or (k=='z9') \
-                    or (k=='z10')or (k=='z11')or (k=='z12') or (k=='a')or (k=='b') or  (k=='b_a') or (k=='gamma_3')or (k=='gamma_1'):
-            #tmodel.logger.debug(sense + '-' + k)
-                results[sense][k] = _variability_analysis_element(tmodel,var,k,sense)
+            if specify:
+                # if (k=='v_upper')or (k=='v_lower'):
+                if (k=='v_upper')or (k=='v_lower') \
+                        or (k=='E') or (k=='EA') or (k=='EAB') or (k=='EP') or (k=='EPQ') or(k=='EB') or (k=='z1') \
+                        or (k=='z2') or (k=='z3') or (k=='z4') or (k=='z5') or (k=='z6') or (k=='z7') or (k=='z8') or (k=='z9') \
+                        or (k=='z10')or (k=='z11')or (k=='z12') or (k=='a')or (k=='b') or  (k=='b_a') or (k=='gamma_3')or (k=='gamma_1'):
+                #tmodel.logger.debug(sense + '-' + k)
+                    results[sense][k] = _variability_analysis_element(tmodel,var,k,sense)
+
+            else:
+                results[sense][k] = _variability_analysis_element(tmodel, var, k, sense)
+
     #tmodel.objective = objective
     df = pd.DataFrame(results)
     df.rename(columns={'min': 'minimum', 'max': 'maximum'}, inplace=True)
@@ -264,7 +269,7 @@ def variability_analysis_linearized_feasibility_biuni_random(_tmodel, kind='reac
     results = {'min':{}, 'max':{}}
     for sense in ['min','max']:
         for k,var in tqdm(tmodel.variables.items(), desc=sense+'imizing'):
-            if (k=='gamma_1')or (k=='gamma_3') or (k=='gamma_5')or (k=='a'):
+            if (k=='gamma_1')or (k=='gamma_3') or (k=='gamma_5') or (k=='a') or (k=='v_upper')  or (k=='v_lower'):
             #tmodel.logger.debug(sense + '-' + k)
                 results[sense][k] = _variability_analysis_element(tmodel,var,k,sense)
     #tmodel.objective = objective
