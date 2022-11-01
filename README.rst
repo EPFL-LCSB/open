@@ -8,11 +8,12 @@ More information can be found in the manuscript
 The package is developed using python 3.6 and run in Docker (20.10.6) containers.
 Tested with solvers cplex and gurobi (default implemented on cplex_interface)
 
-Recommended to be run in docker containers, with dedicated solver installed
+Recommended to be run in docker containers, with dedicated solver installed.
+`Setting up the python API of cplex <https://www.ibm.com/docs/en/icos/12.8.0.0?topic=cplex-setting-up-python-api>`_  in case docker based installation is not used
 
 Requirements
 ------------
-You will need to have Git-LFS in order to properly download some binary files:
+You will need to have `Git-LFS <https://git-lfs.github.com/>`_ in order to properly download some binary files:
 .. code:: bash
 
     git clone https://github.com/EPFL-LCSB/open.git /path/to/open
