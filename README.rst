@@ -13,8 +13,8 @@ Recommended to be run in docker containers, with dedicated solver installed.
 `Setting up the python API of cplex <https://www.ibm.com/docs/en/icos/12.8.0.0?topic=cplex-setting-up-python-api>`_  in case docker based installation is not used
 
 Generated data used in the manuscript is available under
-`data folder <https://github.com/EPFL-LCSB/open/tree/master/data>`_
-subfolder under hierarchical data format.
+`data<https://github.com/EPFL-LCSB/open/tree/master/data>`_ subfolder
+under hierarchical data format.
 
 
 Requirements
