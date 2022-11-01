@@ -4,7 +4,6 @@ import time
 import pandas as pd
 import numpy as np
 from sys import argv
-from open.utils.postprocess import convert_results_to_df, remove_log_calc_overallgamma,plot_convergence_graph
 
 
 _, gamma_overall = argv
@@ -69,29 +68,29 @@ elapsed = time.time() - t
 print('time for optim', elapsed)
 
 
-
-#try here bi-bi
-from open.optim.MILP_BiBi_ordered import *
-import time
-import pandas as pd
-import numpy as np
-from sys import argv
-
-S1_conc=1.0
-S2_conc=1,0
-P1_conc=1.0
-q_equilibrium=1.1
-gamma_ov=1/1/q_equilibrium
-t=time.time()
-
-obj_primal_milp_5step, variables_primal_milp_5step,var_analysis = milp_problem_5step_bibi(gamma_ov, q=2.0, S1=S1_conc,S2=S2_conc,P1=P1_conc, variability_analysis=False)
-
-elapsed = time.time() - t
-print('time for optim', elapsed)
-df_milp= pd.DataFrame(variables_primal_milp_5step,index=[0])
-
-df_milp.k1f*df_milp.k2f*df_milp.k3f*df_milp.k4f*df_milp.k5f/(df_milp.k1b*df_milp.k2b*df_milp.k3b*df_milp.k4b*df_milp.k5b)
-
-(df_milp.z6*df_milp.z7*df_milp.z8*df_milp.z9*df_milp.z10)/(df_milp.z1*df_milp.z2*df_milp.z3*df_milp.z4*df_milp.z5)
-
-df_milp.E+df_milp.EA+df_milp.EAB+df_milp.EPQ+df_milp.EP
+"not included "
+# #try here bi-bi
+# from open.optim.MILP_BiBi_ordered import *
+# import time
+# import pandas as pd
+# import numpy as np
+# from sys import argv
+#
+# S1_conc=1.0
+# S2_conc=1,0
+# P1_conc=1.0
+# q_equilibrium=1.1
+# gamma_ov=1/1/q_equilibrium
+# t=time.time()
+#
+# obj_primal_milp_5step, variables_primal_milp_5step,var_analysis = milp_problem_5step_bibi(gamma_ov, q=2.0, S1=S1_conc,S2=S2_conc,P1=P1_conc, variability_analysis=False)
+#
+# elapsed = time.time() - t
+# print('time for optim', elapsed)
+# df_milp= pd.DataFrame(variables_primal_milp_5step,index=[0])
+#
+# df_milp.k1f*df_milp.k2f*df_milp.k3f*df_milp.k4f*df_milp.k5f/(df_milp.k1b*df_milp.k2b*df_milp.k3b*df_milp.k4b*df_milp.k5b)
+#
+# (df_milp.z6*df_milp.z7*df_milp.z8*df_milp.z9*df_milp.z10)/(df_milp.z1*df_milp.z2*df_milp.z3*df_milp.z4*df_milp.z5)
+#
+# df_milp.E+df_milp.EA+df_milp.EAB+df_milp.EPQ+df_milp.EP

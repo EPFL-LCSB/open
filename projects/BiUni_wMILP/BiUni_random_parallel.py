@@ -6,7 +6,9 @@ import numpy as np
 from sys import argv
 from open.utils.postprocess import convert_results_to_df, remove_log_calc_overallgamma,plot_convergence_graph
 
-
+"This function was when splitting ratio is fixed"
+"random bi uni mechanism is studied in test split_ratio script" \
+"this script is not included in the manuscript"
 _, gamma_overall,alpha = argv
 
 gamma_overall = float(gamma_overall)
@@ -15,9 +17,6 @@ alpha = float(alpha)
 t=time.time()
 q_equilibrium = 2.0
 limit=5.0
-#S_conc = np.linspace((0.001), (limit), 20)
-#P_conc = S_conc* q_equilibrium *gamma_overall
-
 
 A_conc = np.logspace(np.log10(0.001), np.log10(5), 10)
 # A_conc=np.array([5.0])

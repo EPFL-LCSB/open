@@ -35,11 +35,11 @@ map_dict={1:27,
 18:4}
 
 
-df = pd.read_hdf('/open/data/BiUni/df_biuni_milp_q2_040321.h5')
-df=pd.read_hdf('/open/data/BiUni/df_biuni_milp_q2_P1_100321.h5')
-df=pd.read_hdf('/open/data/BiUni/df_biuni_milp_q2_P1_251221.h5')
-df=pd.read_hdf('/open/data/BiUni/df_biuni_milp_q2_P1_261221.h5')
 
+df=pd.read_hdf('/open/data/BiUni_ordered/df_biuni_milp_q2_P1_261221.h5')
+
+"contains for multiple P values"
+df_all=pd.read_hdf('/open/data/BiUni_ordered/df_biuni_milp_q2_040321.h5')
 #to screen the one with most results
 interested_A=[df.A.unique()[i] for i in np.linspace(1,df.A.nunique()-1,20).astype(int)]
 df=df[df.A.isin(interested_A)]
@@ -113,7 +113,7 @@ main_contour_plot_fluxes_random(df_all_3step_unique_rounded,base,q_equilibrium,P
 # plt.ylim([-0.5,5.1])
 #plt.ylim([0,10])
 plt.tight_layout()
-plt.savefig(output_file+'/main_contour_plot_FLUX_q{}_ordered_P_{}.svg'.format(q_equilibrium,P_concentration))
+plt.savefig(output_file+'/ORDERED_main_contour_plot_FLUX_q{}_ordered_P_{}.svg'.format(q_equilibrium,P_concentration))
 plt.close()
 
 

@@ -21,7 +21,6 @@ plt.rcParams['svg.fonttype'] = 'none'
 df_1=pd.read_hdf('/open/data/BiUni_general/output_010321_more_P1_2/df_split_ratio_010321.h5')
 df_1_comb=pd.read_hdf('/open/data/BiUni_general/output_010321_more_P1_2/df_combined.h5')
 
-
 df_01=pd.read_hdf('/open/data/BiUni_general/output_190321_P_0.1_0.001_res/df_split_ratio.h5')
 df_01_comb=pd.read_hdf('/open/data/BiUni_general/output_190321_P_0.1_0.001_res/df_combined.h5')
 
@@ -29,13 +28,13 @@ df_5=pd.read_hdf('/open/data/BiUni_general/output_190321_P_5.0_0.001_res/df_spli
 df_5_comb=pd.read_hdf('/open/data/BiUni_general/output_190321_P_5.0_0.001_res/df_combined.h5')
 
 
+"more resolved"
+df_01=pd.read_hdf('/open/data/BiUni_general/output_130322_P_0.1_0.001_res/df_split_ratio.h5')
+df_01_comb=pd.read_hdf('/open/data/BiUni_general/output_130322_P_0.1_0.001_res/df_combined.h5')
 
-df_01=pd.read_hdf('/open/data/BiUni_general/output_130322_P_0.1_0.001_res/df_combined.h5')
-df_01_comb=pd.read_hdf('/open/data/BiUni_general/output_130322_P_0.1_0.001_res/df_split_ratio.h5')
 
-
-# df_1_new_comb=pd.read_hdf('/open/data/BiUni_general/output_130322_P_1.0_0.001_res/df_combined.h5')
-# df_1_new=pd.read_hdf('/open/data/BiUni_general/output_130322_P_1.0_0.001_res/df_split_ratio.h5')
+df_1_new_comb=pd.read_hdf('/open/data/BiUni_general/output_130322_P_1.0_0.001_res/df_combined.h5')
+df_1_new=pd.read_hdf('/open/data/BiUni_general/output_130322_P_1.0_0.001_res/df_split_ratio.h5')
 
 
 df_1_comb['tf1']=np.log(df_1_comb.gamma_1)/np.log(df_1_comb.gamma_ov)
@@ -69,6 +68,7 @@ q_equilibrium = 2.0
 #gamma_overall=P_concentration/S_concentration/q_equilibrium/B_concentration
 'start from here'
 
+fig, ax = plt.subplots(figsize=(10, 6))
 
 #df_st=df_1
 #indicate which data to plot
@@ -126,7 +126,9 @@ for i in range (n):
     list_linewidth.append(linewidth)
 
 #plt.figure()
-fig, ax = plt.subplots(figsize=(5.5, 4))
+# fig, ax = plt.subplots(figsize=(5.5, 4))
+# fig, ax = plt.subplots(figsize=(8, 8))
+
 # plot the points
 x=np.linspace(0.0001,7,1000)
 plt.plot(x,P_concentration/q_equilibrium/x,c='black',linewidth=1)
@@ -179,10 +181,10 @@ for i in range(n):
 
     if difference.iloc[i]<=1e-2 :
         label = str(df_st.alpha_max.iloc[i].round(2))
-        label=' '
+        # label=' '
     else:
         label = str(df_st.alpha_min.iloc[i].round(2)) + '-'+ str(df_st.alpha_max.iloc[i].round(2))
-        label = ' '
+        # label = ' '
 
     #if (df_st['A'].iloc[i]==df_st['B'].iloc[i]):
     plt.annotate(label, # this is the text
@@ -195,7 +197,8 @@ for i in range(n):
 
 #plt.legend(bbox_to_anchor=(1.02, 1.0), loc='upper left')
 plt.tight_layout()
-plt.savefig(output_file+'/split_ratio_isolines_plot_not_annotated_P{}_diverging_scaled_{}.svg'.format(P_concentration,scaled))
+plt.savefig(output_file+'/LABELED_split_ratio_isolines_plot_not_annotated_P{}_diverging_scaled_{}.svg'.format(P_concentration,scaled))
+# plt.savefig(output_file+'/split_ratio_isolines_plot_not_annotated_P{}_diverging_scaled_{}.svg'.format(P_concentration,scaled))
 plt.close()
 
 
