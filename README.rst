@@ -2,8 +2,8 @@ OpEn: Optimal Enzyme
 ==========================================
 This repository contains the workflow to framework to explore the catalytically optimal modes of operations of enzymatic reactions.
 
-More information can be found in the manuscript
-`Optimal enzyme utilization suggests concentrations and thermodynamics favor condition-specific saturations and binding mechanisms <https://www.biorxiv.org/content/10.1101/2022.04.12.488028v1.full>`_
+More information can be found in the
+`Preprint <https://www.biorxiv.org/content/10.1101/2022.04.12.488028v1.full>`_ on bioRxiv
 
 
 The package is developed using python 3.6 and run in Docker (20.10.6) containers.
@@ -13,7 +13,7 @@ Recommended to be run in docker containers, with dedicated solver installed.
 `Setting up the python API of cplex <https://www.ibm.com/docs/en/icos/12.8.0.0?topic=cplex-setting-up-python-api>`_  in case docker based installation is not used
 
 Generated data used in the manuscript is available under
-|data|_
+`data folder <https://github.com/EPFL-LCSB/open/tree/master/data>`_
 subfolder under hierarchical data format.
 
 
