@@ -81,10 +81,11 @@ The installation process should not exceed a minute if the requirements are inst
 
 Quick start
 ===========
-As a demo to generate optimal operating conditions for a 3-step MichaelisMenten mechanism please find below a simple example to get started:
+As a demo following examples can be run inside IPython:
+
+Optimal operating conditions for a 3-step MichaelisMenten mechanism please find below a simple example to get started:
 
 .. code-block:: python
-
 
     from open.optim.LP_MILP_wpiecewise import *
     import time
@@ -98,14 +99,14 @@ As a demo to generate optimal operating conditions for a 3-step MichaelisMenten 
     obj_primal_milp, variables_primal_milp, var_analysis = milp_problem_3step(gamma_overall, q=q_equilibrium,
                                                                           S=S_concentration, variability_analysis=False)
     df_milp_variables = pd.DataFrame(variables_primal_milp, index=[0])
-
+    df=df_milp_variables[['E','ES','EP','v','gamma_1','gamma_2','gamma_3','gamma_ov',\
+    'k1f','k2f','k3f','k1b','k2b','k3b']]
     elapsed = time.time() - t
     print('time for optimization', elapsed)
 
 Similarly for ordered multisubstrate mechanism A+B-->P
 
 .. code-block:: python
-
 
     from open.optim.LP_MILP_wpiecewise import *
     import time
@@ -124,6 +125,9 @@ Similarly for ordered multisubstrate mechanism A+B-->P
                                                                                       variability_analysis=False)
     df_milp_variables = pd.DataFrame(variables_primal_milp_4step,index=[0])
 
+    df=df_milp_variables[['E','EA','EAB','EP','v','gamma_1','gamma_2','gamma_3','gamma_4',\
+    'gamma_ov','k1f','k2f','k3f','k4f','k1b','k2b','k3b','k4b']]
+
     elapsed = time.time() - t
     print('time for optim', elapsed)
 
@@ -139,7 +143,7 @@ And for random ordered multisubstrate mechanism A+B-->P
     A_concentration=3.0
     B_concentration=3.0
     q_equilibrium=2.0
-    df_st = pd.DataFrame(columns=['A', 'B', 'P', 'q', 'alpha_max', 'alpha_min', 'v_net', 'gamma_ov'])
+    df = pd.DataFrame(columns=['A', 'B', 'P', 'q', 'alpha_max', 'alpha_min', 'v_net', 'gamma_ov'])
     gamma_overall = P_concentration / A_concentration / q_equilibrium / B_concentration
 
     t = time.time()
@@ -157,7 +161,7 @@ And for random ordered multisubstrate mechanism A+B-->P
                      'alpha_max': split_max, \
                      'alpha_min': split_min, 'v_net': obj_primal_milp_4step_random_split, 'gamma_ov': gamma_overall}
     row_to_add = pd.Series(values_to_add, name=str(0))
-    df_st = df_st.append(row_to_add)
+    df = df.append(row_to_add)
 
 
 Generating optimal operating conditions for one data point should take around 2-10 seconds depending
