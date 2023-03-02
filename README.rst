@@ -171,7 +171,7 @@ Reproduction of Results
 =======
 All results can be reproduced according to the codes provided in the
 `projects <https://github.com/EPFL-LCSB/open/tree/master/projects>`_ subfolder.
-All figures can be reproduces using the generated `data <https://github.com/EPFL-LCSB/open/tree/master/data>`_
+All figures can be reproduced using the generated `data <https://github.com/EPFL-LCSB/open/tree/master/data>`_
 and the scripts in the `figures <https://github.com/EPFL-LCSB/open/tree/master/figures>`_ subfolder.
 
 License
