@@ -21,18 +21,15 @@ plt.rcParams['svg.fonttype'] = 'none'
 df_1=pd.read_hdf('/open/data/BiUni_general/output_010321_more_P1_2/df_split_ratio_010321.h5')
 df_1_comb=pd.read_hdf('/open/data/BiUni_general/output_010321_more_P1_2/df_combined.h5')
 
-df_01=pd.read_hdf('/open/data/BiUni_general/output_190321_P_0.1_0.001_res/df_split_ratio.h5')
-df_01_comb=pd.read_hdf('/open/data/BiUni_general/output_190321_P_0.1_0.001_res/df_combined.h5')
+df_01=pd.read_hdf('/open/data/BiUni_general/output_130322_P_0.1_0.001_res/df_split_ratio.h5')
+df_01_comb=pd.read_hdf('/open/data/BiUni_general/output_130322_P_0.1_0.001_res/df_combined.h5')
+
 
 df_5=pd.read_hdf('/open/data/BiUni_general/output_190321_P_5.0_0.001_res/df_split_ratio.h5')
 df_5_comb=pd.read_hdf('/open/data/BiUni_general/output_190321_P_5.0_0.001_res/df_combined.h5')
 
 
 "more resolved"
-df_01=pd.read_hdf('/open/data/BiUni_general/output_130322_P_0.1_0.001_res/df_split_ratio.h5')
-df_01_comb=pd.read_hdf('/open/data/BiUni_general/output_130322_P_0.1_0.001_res/df_combined.h5')
-
-
 df_1_new_comb=pd.read_hdf('/open/data/BiUni_general/output_130322_P_1.0_0.001_res/df_combined.h5')
 df_1_new=pd.read_hdf('/open/data/BiUni_general/output_130322_P_1.0_0.001_res/df_split_ratio.h5')
 
@@ -69,20 +66,17 @@ q_equilibrium = 2.0
 'start from here'
 
 fig, ax = plt.subplots(figsize=(10, 6))
-
 #df_st=df_1
 #indicate which data to plot
 df_st=df_1
 P_concentration = df_st.P.iloc[0].round(2)
 scaled=True
-output_file='./biuni_general/paper'
+output_file='./biuni_general/paper_review'
 
 
 #output_file='./milp_3step_011120'
 if not os.path.exists(output_file):
     os.makedirs(output_file)
-
-
 
 xs = df_st['A']
 ys = df_st['B']
