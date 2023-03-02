@@ -167,6 +167,12 @@ And for random ordered multisubstrate mechanism A+B-->P
 Generating optimal operating conditions for one data point should take around 2-10 seconds depending
 on if variability analysis is performed or not
 
+Reproduction of Results
+=======
+All results can be reproduced according to the codes provided in the
+`projects <https://github.com/EPFL-LCSB/open/tree/master/projects>`_ subfolder
+All figures can be reproduces using the generated `data <https://github.com/EPFL-LCSB/open/tree/master/data>`_
+and the scripts in the `figures <https://github.com/EPFL-LCSB/open/tree/master/figures>`_ subfolder.
 
 License
 =======
