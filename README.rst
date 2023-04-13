@@ -7,7 +7,7 @@ More information can be found in the
 
 
 The package is developed using python 3.6 and run in Docker (20.10.6) containers.
-Tested with solvers cplex and gurobi (default implemented on cplex_interface)
+Tested with solvers cplex (v12.8.0) and gurobi(v9.1.2) (default implemented on cplex_interface)
 
 Recommended to be run in docker containers, with dedicated solver installed.
 `Setting up the python API of cplex <https://www.ibm.com/docs/en/icos/12.8.0.0?topic=cplex-setting-up-python-api>`_  in case docker based installation is not used
@@ -68,7 +68,7 @@ Building the docker image takes approximately 5 mins.
 
 Setup
 =====
-You can install this module from source using ``pip``:
+If container-based installation is not preferred you can also install this module from source using ``pip``:
 *For Python 3, you might have to use* ``pip3`` *instead of* ``pip``
 
 .. code:: bash
