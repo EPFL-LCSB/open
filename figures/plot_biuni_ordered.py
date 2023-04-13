@@ -37,13 +37,11 @@ map_dict={1:27,
 
 
 df=pd.read_hdf('/open/data/BiUni_ordered/df_biuni_milp_q2_P1_261221.h5')
-
 "contains for multiple P values"
 df_all=pd.read_hdf('/open/data/BiUni_ordered/df_biuni_milp_q2_040321.h5')
 #to screen the one with most results
 interested_A=[df.A.unique()[i] for i in np.linspace(1,df.A.nunique()-1,20).astype(int)]
 df=df[df.A.isin(interested_A)]
-
 q_equilibrium=2.0
 df['kcat']=df.k3f*df.k4f/(df.k3f+df.k4f+df.k3b)
 output_file='./bi_uni_figures/q_{}'.format(q_equilibrium)
@@ -58,7 +56,7 @@ if not os.path.exists(output_file):
 "DATA FROM OPTIMIZATION"
 P_conc=1.0
 df_all_3step_unique_rounded=df[df.P==P_conc]
-limit_cut=0.99
+limit_cut=0.97
 "Assign ranges based on the limit you define and classify accordingly"
 #gr_general=['k1f_range', 'k2f_range', 'k3f_range', 'k4f_range','k5f_range', 'k6f_range', 'k1b_range', 'k2b_range', 'k3b_range', 'k4b_range','k5b_range', 'k6b_range']
 #gr_general_according=['k1f_range', 'k3f_range', 'k5f_range', 'k6f_range', 'k1b_range', 'k3b_range','k5b_range', 'k6b_range']
@@ -123,7 +121,7 @@ main_contour_plot_fluxes_random(df_all_3step_unique_rounded,df_all_3step_unique_
 plt.savefig(output_file+'/main_contour_plot_kcat_q{}_ordered_P_{}.svg'.format(q_equilibrium,limit_cut,P_conc))
 plt.close()
 
-df_all = pd.read_hdf('/open/data/BiUni/df_biuni_milp_q2_040321.h5')
+df_all = pd.read_hdf('/open/data/BiUni_ordered/df_biuni_milp_q2_040321.h5')
 P_concentration=5.0
 df_all_3step_unique_rounded=df_all[df_all.P==P_concentration]
 level_number=21
@@ -152,48 +150,39 @@ plt.close()
 # #axes.set_xticklabels(x_axis)
 # plt.savefig(output_file+'/violin_q{}_ordered.png'.format(q_equilibrium))
 # #   axes.set_ylabel('c_2nd')
-from MCA.mca_plots import plot_violin_MCA_with_gamma_matplotlib
-
-fig,axes=plot_violin_MCA_with_gamma_matplotlib(df,x='P',y='kcat')
-#axes.set_ylim([0,1])
-axes.set_ylabel(r'$k_{cat}$')
-axes.set_xlabel(r'[P]')
-axes.set_ylim([-1e-1,1.01])
-plt.savefig(output_file+'/kcat_effect_violin_qeq_{}.svg')
-
 
 ## from here plot random
 'plot random rate constant distributions'
 'neglect this for now'
-df_01=pd.read_hdf('/open/projects/efficiency_tests_and_sampling/output_190321_P_0.1_0.001_res/df_combined.h5')
-df_05=pd.read_hdf('/open/projects/efficiency_tests_and_sampling/output_190321_P_0.5_0.001_res/df_combined.h5')
-df_1=pd.read_hdf('/open/projects/efficiency_tests_and_sampling/output_190321_P_1.0_0.001_res/df_combined.h5')
-df_2=pd.read_hdf('/open/projects/efficiency_tests_and_sampling/output_190321_P_2.0_0.001_res/df_combined.h5')
-df_5=pd.read_hdf('/open/projects/efficiency_tests_and_sampling/output_190321_P_5.0_0.001_res/df_combined.h5')
-
-df_st_01=pd.read_hdf('/open/projects/efficiency_tests_and_sampling/output_190321_P_0.1_0.001_res/df_split_ratio.h5')
-df_st_05=pd.read_hdf('/open/projects/efficiency_tests_and_sampling/output_190321_P_0.5_0.001_res/df_split_ratio.h5')
-df_st_1=pd.read_hdf('/open/projects/efficiency_tests_and_sampling/output_190321_P_1.0_0.001_res/df_split_ratio.h5')
-df_st_2=pd.read_hdf('/open/projects/efficiency_tests_and_sampling/output_190321_P_2.0_0.001_res/df_split_ratio.h5')
-df_st_5=pd.read_hdf('/open/projects/efficiency_tests_and_sampling/output_190321_P_5.0_0.001_res/df_split_ratio.h5')
-
-
-df=df_05.append(df_1)
-df=df.append(df_2)
-df=df.append(df_5)
-df=df.append(df_01)
-df=df.reset_index()
-
-
-df=df_01.append(df_1)
-df=df.append(df_5)
-df=df.reset_index()
-
-df_st=df_st_05.append(df_st_1)
-df_st=df_st.append(df_st_2)
-df_st=df_st.append(df_st_5)
-df_st=df_st.append(df_st_01)
-df_st=df_st.reset_index()
+# df_01=pd.read_hdf('/open/projects/efficiency_tests_and_sampling/output_190321_P_0.1_0.001_res/df_combined.h5')
+# df_05=pd.read_hdf('/open/projects/efficiency_tests_and_sampling/output_190321_P_0.5_0.001_res/df_combined.h5')
+# df_1=pd.read_hdf('/open/projects/efficiency_tests_and_sampling/output_190321_P_1.0_0.001_res/df_combined.h5')
+# df_2=pd.read_hdf('/open/projects/efficiency_tests_and_sampling/output_190321_P_2.0_0.001_res/df_combined.h5')
+# df_5=pd.read_hdf('/open/projects/efficiency_tests_and_sampling/output_190321_P_5.0_0.001_res/df_combined.h5')
+#
+# df_st_01=pd.read_hdf('/open/projects/efficiency_tests_and_sampling/output_190321_P_0.1_0.001_res/df_split_ratio.h5')
+# df_st_05=pd.read_hdf('/open/projects/efficiency_tests_and_sampling/output_190321_P_0.5_0.001_res/df_split_ratio.h5')
+# df_st_1=pd.read_hdf('/open/projects/efficiency_tests_and_sampling/output_190321_P_1.0_0.001_res/df_split_ratio.h5')
+# df_st_2=pd.read_hdf('/open/projects/efficiency_tests_and_sampling/output_190321_P_2.0_0.001_res/df_split_ratio.h5')
+# df_st_5=pd.read_hdf('/open/projects/efficiency_tests_and_sampling/output_190321_P_5.0_0.001_res/df_split_ratio.h5')
+#
+#
+# df=df_05.append(df_1)
+# df=df.append(df_2)
+# df=df.append(df_5)
+# df=df.append(df_01)
+# df=df.reset_index()
+#
+#
+# df=df_01.append(df_1)
+# df=df.append(df_5)
+# df=df.reset_index()
+#
+# df_st=df_st_05.append(df_st_1)
+# df_st=df_st.append(df_st_2)
+# df_st=df_st.append(df_st_5)
+# df_st=df_st.append(df_st_01)
+# df_st=df_st.reset_index()
 
 from open.utils.postprocess import calculate_rate_constants_random_biuni
 from figures.main_figures_for_random import *
